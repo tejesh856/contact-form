@@ -1,0 +1,459 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    border: 1px solid blue;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(0deg,rgba(0, 100, 0,0.9) 15%,rgba(255, 255, 255,1),rgba(255, 81, 0,0.9) 100%);
+   
+}
+.container{
+    position: absolute;
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left:0;
+}
+#preloader{
+    position:fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg,rgb(0, 255, 157) 40%,rgb(0, 255, 234));
+    z-index: 1000;
+    
+
+}
+
+/*@keyframes vanish{
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}*/
+#cont{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border: 15px solid rgb(109, 68, 255,0.2);
+    border-top-right-radius:50%;
+    border-top-color: rgba(109,68,255,1);
+    animation:spin 1.5s infinite linear;
+
+
+
+}
+@keyframes spin{
+    100%{
+        transform: rotate(360deg);
+    }
+
+}
+
+#cover{
+    position:fixed;
+    border: 3px solid black;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+    background-color: black;
+    opacity:0.5;
+    display: none;
+    
+}
+img{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    z-index: -1;
+}
+a{
+    position: absolute;
+    top: 1rem;
+    right: 5rem;
+    text-decoration: none;
+    text-transform:uppercase;
+    color: white;
+    background-color: transparent;
+    border: 0.2rem solid white;
+    padding:0.5rem 1rem;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    border-radius:10px;
+    cursor: pointer;
+    z-index: 10;
+
+
+}
+
+.chakra{
+    height:16em;
+    width:16em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid navy;
+    border-radius:50%;
+    
+
+}
+.chakra::before{
+    content: '';
+    height:3em;
+    width:3em;
+    position:absolute;
+    top:6.5em;
+    left:6.5em;
+    border-radius: 50%;
+    background-color: navy;
+}
+.spikes{
+    width: 1em;
+    height: 0em;
+    position: absolute;
+    top:7.75em;
+    left: 8em;
+    border-top: 0.25em solid transparent;
+    border-right: 2em solid navy;
+    border-bottom: 0.25em solid transparent;
+    transform-origin:0 0.25em;
+}
+.spikes::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -0.25em;
+    left:1em;
+    border-top:0.125em solid transparent;
+    border-right:7em solid navy;
+    border-bottom:0.125em solid transparent;
+}
+.spikes::after{
+    content: '';
+    position: absolute;
+    width: 0.5em;
+    height: 0.5em;
+    top: 0.66em;
+    left: 7.4em;
+    background-color: navy;
+    border-radius: 50%;
+}
+.spikes1{
+    transform: rotate(0deg);
+}
+.spikes2{
+    transform: rotate(15deg);
+}
+.spikes3{
+    transform: rotate(30deg);
+}
+.spikes4{
+    transform: rotate(45deg);
+}
+.spikes5{
+    transform: rotate(60deg);
+}
+.spikes6{
+    transform: rotate(75deg);
+}
+.spikes7{
+    transform: rotate(90deg);
+}
+.spikes8{
+    transform: rotate(105deg);
+}
+.spikes9{
+    transform: rotate(120deg);
+}
+.spikes10{
+    transform: rotate(135deg);
+}
+.spikes11{
+    transform: rotate(150deg);
+}
+.spikes12{
+    transform: rotate(165deg);
+}
+.spikes13{
+    transform: rotate(180deg);
+}
+.spikes14{
+    transform: rotate(195deg);
+}
+.spikes15{
+    transform: rotate(210deg);
+}
+.spikes16{
+    transform: rotate(225deg);
+}
+.spikes17{
+    transform: rotate(240deg);
+}
+.spikes18{
+    transform: rotate(255deg);
+}
+.spikes19{
+    transform: rotate(270deg);
+}
+.spikes20{
+    transform: rotate(285deg);
+}
+.spikes21{
+    transform: rotate(300deg);
+}
+.spikes22{
+    transform: rotate(315deg);
+}
+.spikes23{
+    transform: rotate(330deg);
+}
+.spikes24{
+    transform: rotate(345deg);
+}
+.forms{
+    border: 1px solid transparent;
+    transform:translate(0px,-10px);
+    padding:2rem 2rem;
+    background:linear-gradient(0deg,rgba(0, 100, 0,0.5) 15%,rgba(255, 255, 255,0.8),rgba(255, 81, 0,0.5) 100%);
+    box-shadow:0 0 10px black,0 0 5px rgb(255, 255, 255);
+    border-radius: 10px;
+    opacity:0;
+    position:absolute;
+    top: -100%;
+    left:32%;
+    transform:scaleX(0);
+    transition:transform 0s ease,top 0.45s ease,opacity 0.5s ease-in;
+    
+    
+    
+
+}
+.forms::before{
+    content: '';
+    display: block;
+    width: 80%;
+    height: 12%;
+    position: absolute;
+    top: -30px;
+    background:linear-gradient(5deg,rgb(0, 0, 255,1) -5%,rgba(149,68,255,1) 50%,rgba(0,255,0,1) 80%);
+    text-transform: capitalize;
+    box-shadow:0 0 5px black,0 0 5px rgb(255, 255, 255);
+    border-radius: 5px;
+    padding:0.1rem 1rem;
+}
+.forms::after{
+    content: 'contact form';
+    position: absolute;
+    top: -30px;
+    left: 130px;
+    text-transform: capitalize;
+    color: white;
+    font-size: 30px;
+}
+
+#l1{
+    text-transform: capitalize;
+    font-size: 20px;
+
+
+
+}
+#l1:after{
+    content: ':';
+    font-size: 20px;
+    margin:0 0.2rem;
+}
+#l2,#l3{
+    color: red;
+    position: relative;
+    left: 65px;
+    opacity:0.9;
+}
+
+#l4{
+    color: red;
+    position: relative;
+    left: 85px;
+    opacity: 0.9;
+}
+#box1,#box2,#box3{
+    font-size: 20px;
+    padding:0.2rem 1rem;
+    color: green;
+    border:0px solid transparent;
+    outline:0.19rem solid cadetblue;
+    text-transform: uppercase;
+    border-radius:3px;
+    letter-spacing: 0.5px;
+    background-color: transparent;
+    
+    
+    
+
+}
+
+#box3{
+    text-transform: none;
+}
+#cross{
+    color: white;
+    transform: translate(100px,0px);
+    background:linear-gradient(45deg,crimson,rgb(255, 94, 0));
+    padding:0.5rem 1rem;
+    text-transform: capitalize;
+    border: none;
+    cursor: pointer;
+}
+#cross:focus{
+    background: linear-gradient(45deg,green,rgb(174, 0, 255));
+}
+/*#box1::placeholder,#box2::placeholder,#box3::placeholder{
+    text-transform: capitalize;
+    font-size: 15px;
+    letter-spacing: 0px;
+}*/
+#box1:focus,#box2:focus,#box3:focus{
+    outline:2px solid green;
+    box-shadow:0 0 5px cadetblue,0 0 5px cadetblue;
+
+}
+input::placeholder{
+    color:black;
+    text-transform: capitalize;
+    opacity: 0.4;
+    font-size: 16px;
+    font-weight: bold;
+    transition:all 0.5s ease;
+
+
+}
+#box1:focus::placeholder,#box2:focus::placeholder,#box3:focus::placeholder{
+    transform: translateY(-20px);
+    opacity: 0;
+
+
+}
+/*.place{
+    position: absolute;
+    text-transform: capitalize;
+    opacity: 0.7;
+    top: 36px;
+    left: 110px;
+    font-size: 18px;
+    z-index: -1;
+    transition:all 0.25s ease;
+}
+.holder2{
+    position: absolute;
+    top: 100px;
+    left: 112px;
+    
+}
+.holder3{
+    position: absolute;
+    top: 168px;
+    left: 132px;
+}
+
+#box1:focus~.holder1{
+    position: absolute;
+    top: 18px;
+    z-index: 1;
+    opacity:0;
+}
+#box2:focus~.holder2{
+    position: absolute;
+    top: 84px;
+    z-index: 1;
+    opacity:0;
+}
+#box3:focus~.holder3{
+    position: absolute;
+    top: 150px;    
+    z-index: 1;
+    opacity:0;
+}*/
+/*#box1:focus::placeholder,#box2:focus::placeholder,#box3:focus::placeholder{
+    opacity: 0;
+}*/
+.btn{
+    color: white;
+    transform: translate(120px,0px);
+    background:linear-gradient(45deg,crimson,rgb(255, 94, 0));
+    padding:0.5rem 1rem;
+    text-transform: capitalize;
+    border: none;
+    cursor: pointer;
+
+
+}
+.btn:focus{
+    background: linear-gradient(45deg,green,rgb(174, 0, 255));
+}
+.popup{
+    border:none;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding:0.5rem 1.5rem;
+    width:300px;
+    height: 250px;
+    box-shadow:0 0 5px black,0 0 5px white;
+    transform:scaleX(0);
+    transition:transform 0.5s ease;
+    background:linear-gradient(0deg,rgba(0, 100, 0,0.5) 15%,rgba(255, 255, 255,0.8),rgba(255, 81, 0,0.5) 100%);
+    z-index: 1;
+}
+.circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: rgb(54, 255, 47);
+    
+}
+.tick{
+    width: 20px;
+    height: 50px;
+    
+    border:0.25rem solid rgb(255, 255, 255);
+    border-top:0;
+    border-left: 0;
+    transform: rotate(45deg);
+    position:relative;
+    display: block;
+    top: 20px;
+    left: 40px;
+}
+.message{
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    transform: translate(0%,50%);
+    white-space: nowrap;
+}
+#submited{
+   
+    padding:0.2rem 1rem;
+    text-transform: uppercase;
+    background:linear-gradient(-90deg,rgba(255, 238, 0,1),rgba(0,0,255,1));
+    transform: translate(20%,160%);
+    border: none;
+    cursor: pointer;
+}

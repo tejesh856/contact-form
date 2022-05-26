@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="sample.css">
+        
+    </head>
+    <body>
+      <!--<div id="preloader">
+        <span id="cont"></span>
+      </div>-->
+      <div class="container">
+        <div id="cover"></div>
+        <img src="logo.jpg" alt="logo">
+        <a type="button" onclick="buttonClickLink()" id="link">contact us</a>
+        <div class="chakra">
+          <div class="spikes spikes1"></div>
+          <div class="spikes spikes2"></div>
+          <div class="spikes spikes3"></div>
+          <div class="spikes spikes4"></div>
+          <div class="spikes spikes5"></div>
+          <div class="spikes spikes6"></div>
+          <div class="spikes spikes7"></div>
+          <div class="spikes spikes8"></div>
+          <div class="spikes spikes9"></div>
+          <div class="spikes spikes10"></div>
+          <div class="spikes spikes11"></div>
+          <div class="spikes spikes12"></div>
+          <div class="spikes spikes13"></div>
+          <div class="spikes spikes14"></div>
+          <div class="spikes spikes15"></div>
+          <div class="spikes spikes16"></div>
+          <div class="spikes spikes17"></div>
+          <div class="spikes spikes18"></div>
+          <div class="spikes spikes19"></div>
+          <div class="spikes spikes20"></div>
+          <div class="spikes spikes21"></div>
+          <div class="spikes spikes22"></div>
+          <div class="spikes spikes23"></div>
+          <div class="spikes spikes24"></div>
+        </div>
+        <form class="forms">
+          <label for="box" id="l1">name</label>
+          <input type="text" name="box" id="box1" placeholder="enter your name" autocomplete="off">
+          <!--<span class="place holder1">enter your name</span>-->
+          <br>
+          <label id="l2"></label>
+          <br>
+          <br>
+          <label for="box" id="l1">ph.no</label>
+          <input type="number" name="box" id="box2" placeholder="enter your phone number" autocomplete="off">
+          <!--<span class="place holder2">enter your phone number</span>-->
+          <br>
+          <label id="l3"></label>
+          <br>
+          <br>
+          <label for="box" id="l1">email.id</label>
+          <input type="email" name="box" id="box3" placeholder="enter your email.id" autocomplete="off">
+          <!--<span class='place holder3'>enter your mail.id</span>-->
+          <br>
+          <label id="l4"></label>
+          <br>
+          <br>
+          <button type="button" id="cross" onclick="buttonClickCancel()">cancel</button>
+          <button type="submit" name="button" class="btn" id="btn">submit</button>
+        </form>
+        <div class="popup">
+          <span class="circle">
+            <span class="tick"></span>
+          </span>
+          <span class="message">your details has been submitted</span>
+          <button type="button" id="submited" onclick="buttonClickOk()">ok</button>
+        </div>
+        
+      </div>
+      <script type="text/javascript">
+        
+        const form=document.querySelector('.forms');
+        const name=document.querySelector('#box1');
+        const phone=document.querySelector('#box2');
+        const email=document.querySelector('#box3');
+        const contact=document.querySelector('#link');
+        const cover=document.querySelector('#cover');
+        var nameLabel=document.querySelector('#l2');
+        var phoneLabel=document.querySelector('#l3');
+        var emailLabel=document.querySelector('#l4');
+        const popup=document.querySelector('.popup');
+        
+        
+       
+        
+        phone.maxLength=10;
+
+        function buttonClickLink(){
+          form.style='top:20%; transform:scale(1); opacity:1;';
+          cover.style='display:block;';
+          contact.style='pointer-events:none; z-index:-1';
+          
+
+        }
+
+        name.addEventListener('input',()=>{
+          
+          validateName();
+        })
+        phone.addEventListener('input',()=>{
+          
+          validatePhone();
+        })
+        email.addEventListener('input',()=>{
+          
+          validateEmail();
+        })
+        form.addEventListener('submit',(event)=>{
+          event.preventDefault();
+          validate();
+          
+        })
+        
+        const isEmail=(emailVal)=>{
+            var atSymbol=emailVal.indexOf("@");
+            if(atSymbol<1)return false;
+            var dot=emailVal.lastIndexOf(".");
+            if(dot<=atSymbol+2)return false;
+            if(dot===emailVal.length-1)return false;
+            return true;
+        }
+        const success=()=>{
+         
+          if(nameLabel.innerHTML==='' && phoneLabel.innerHTML==='' && emailLabel.innerHTML===''){
+            popup.style='transform:scaleX(1);';
+            cover.style='display:none;';
+            form.style='transform:scaleX(0); top:-100%; opacity:0; transition:transform 1s ease,top 0.45s ease,opacity 0.5s ease-in;';
+            alert('your details have been submitted!');
+            //location.href=`sample.html?username=${name.value}/phonenumber=${phone.value}/email=${email.value}`;
+
+            
+            return true;
+            
+            
+
+          }
+          else{
+            return false;
+          }
+          
+          
+
+
+        }
+        function validateName() {
+          if (name.value.trim()==='') {
+            nameLabel.innerHTML='do not leave it blank';
+            name.style='outline:2px solid red';
+          }else if(name.value.length<=3){
+            nameLabel.innerHTML='min 3 character required';
+            name.style='outline:2px solid red';
+          }else{
+            nameLabel.innerHTML='';
+            name.style='outline:2px solid green';
+          }
+          
+        }
+
+        function validatePhone() {
+          if (phone.value===''){
+            phoneLabel.innerHTML='do not leave it blank';
+            phone.style='outline:2px solid red';
+          }else if(phone.value.length!=10){
+            phoneLabel.innerHTML='phone number invalid';
+            phone.style='outline:2px solid red';
+
+          }else{
+            phoneLabel.innerHTML='';
+            phone.style='outline:2px solid green';
+            
+          }
+        }
+          function validateEmail(){
+            const emailVal=email.value.trim();
+            if (email.value===''){
+              emailLabel.innerHTML='do not leave it blank';
+              email.style='outline:2px solid red';
+            }else if(!isEmail(emailVal)){
+              emailLabel.innerHTML='email is invalid';
+              email.style='outline:2px solid red';
+            }else{
+              emailLabel.innerHTML='';
+              email.style='outline:2px solid green';
+            }
+          }
+
+       
+        function validate(){
+          const emailVal=email.value.trim();
+
+          if (name.value.trim()==='') {
+            nameLabel.innerHTML='do not leave it blank';
+            name.style='outline:2px solid red';
+          }else if(name.value.length<=3){
+            nameLabel.innerHTML='min 3 character required';
+            name.style='outline:2px solid red';
+          }else{
+            nameLabel.innerHTML='';
+            name.style='outline:2px solid green';
+          }
+
+          
+          if (phone.value===''){
+            phoneLabel.innerHTML='do not leave it blank';
+            phone.style='outline:2px solid red';
+          }else if(phone.value.length!=10){
+            phoneLabel.innerHTML='phone number invalid';
+            phone.style='outline:2px solid red';
+
+          }else{
+            phoneLabel.innerHTML='';
+            phone.style='outline:2px solid green';
+            
+          }
+          if (email.value===''){
+            emailLabel.innerHTML='do not leave it blank';
+            email.style='outline:2px solid red';
+          }else if(!isEmail(emailVal)){
+            emailLabel.innerHTML='email is invalid';
+            email.style='outline:2px solid red';
+
+          }else{
+            emailLabel.innerHTML='';
+            email.style='outline:2px solid green';
+            
+          }
+          success();
+          
+        }
+
+        
+
+        function buttonClickCancel(){
+          form.style='top:-100%; transform:scale(0); opacity:0; transition:transform 1s ease,top 0.45s ease,opacity 0.5s ease-in;';
+          cover.style='display:none;';
+          contact.style='pointer-events:all; z-index:0';
+          name.style='borderColor:2px solid cadetblue;';
+          phone.style='borderColor:2px solid cadetblue;';
+          email.style='borderColor:2px solid cadetblue;';
+          name.value='';
+          phone.value='';
+          email.value='';
+          nameLabel.innerHTML='';
+          phoneLabel.innerHTML='';
+          emailLabel.innerHTML='';
+
+
+        }
+        function buttonClickOk(){
+          contact.style='pointer-events:all; z-index:0';
+          popup.style='transform:scaleX(0)';
+          name.style='borderColor:2px solid cadetblue;';
+          phone.style='borderColor:2px solid cadetblue;';
+          email.style='borderColor:2px solid cadetblue;';
+          name.value='';
+          phone.value='';
+          email.value='';
+          nameLabel.innerHTML='';
+          phoneLabel.innerHTML='';
+          emailLabel.innerHTML='';
+
+        }
+        cover.addEventListener('click',()=>{
+          form.style="transform:scaleX(0);";
+          cover.style="display:none";
+          contact.style="pointer-events:all; z-index:0;";
+
+        })
+      </script>
+
+
+    </body>
+    
+</html>
